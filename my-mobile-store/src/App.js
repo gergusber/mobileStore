@@ -4,35 +4,42 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './App.css';
-import Header from './components/layout/header/header';
-import SearchBar from './components/layout/searchbar/searchbar';
-import Mobiles from './components/mobile/Mobiles'
-import Cart from './components/cart/cart';
-import { useState } from "react";
+import HomePage from './pages/homePage/HomePage'
+import RootLayout from './pages/Root';
+import ErrorPage from './pages/error/Error'
+import {
+  createBrowserRouter,
+  RouterProvider
+} from 'react-router-dom'
+import MobileDetailPage from './pages/mobileDetailPage/mobileDetailPage';
 
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { index: true, element: <HomePage /> },
+      {
+        path: 'mobile',
+        children: [
+          {
+            path: ':mobileId',
+            id: 'mobile-detail',
+            element: <MobileDetailPage />
+          },          
+        ],
+      },
+     
+    ],
+  },
+])
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(false);
 
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
-
-  return (
-    <>
-      <div className="App">
-        <Header onShowCart={showCartHandler}/>
-        {cartIsShown && <Cart onHideCart={hideCartHandler} />}
-        <main>
-          <SearchBar />
-          <Mobiles />
-        </main>
-      </div>
-    </>
-  );
-}
+    return <>
+        <RouterProvider router={router} />
+    </>;
+  }
 
 export default App;
