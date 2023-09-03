@@ -1,0 +1,38 @@
+.mobileDescription {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.productImage {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.productImage img {
+  max-width: 100%;
+  height: auto;
+}
+
+.productDetails {
+  flex: 2;
+}
+
+.productDetails h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.mobileProperties {
+  list-style-type: none;
+  padding: 0;
+}
+
+.property {
+  margin-bottom: 10px;
+}
+
+.property strong {
+  font-weight: bold;
+  margin-right: 10px;
+}
