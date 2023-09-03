@@ -2,6 +2,7 @@ import Input from '../../ui/input/Input';
 import BreadCrumb from '../breadcrumb/breadcrum';
 import classes from './searchbar.module.css';
 import React, { useRef, useState } from 'react';
+import Button from '@mui/material/Button'
 
 const SearchBar = (props) => {
   const searchInputRef = useRef();
@@ -9,7 +10,6 @@ const SearchBar = (props) => {
 
   const submitHandler = event => {
     event.preventDefault();
-
     const enteredSearch = searchInputRef.current.value;
     if (enteredSearch.trim().length === 0) {
       setSearchIsValid(false)
@@ -31,7 +31,7 @@ const SearchBar = (props) => {
               className: classes.input
             }}
           />
-          <button>Search</button>
+          <Button type='submit'>Search</Button>
         </form>
       </div>
     </>

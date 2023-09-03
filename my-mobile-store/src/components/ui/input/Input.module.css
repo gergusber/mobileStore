@@ -11,7 +11,7 @@
 }
 
 .input input {
-  width: 16rem;
+  /* width: 16rem; */
   border-radius: 5px;
   border: 1px solid #ccc;
   font: inherit;
