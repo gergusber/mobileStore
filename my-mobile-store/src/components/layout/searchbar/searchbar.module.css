@@ -1,0 +1,43 @@
+.searchBar{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  /* align-content: center; */
+  align-items: center;
+}
+
+.form {
+  text-align: right;
+  display: flex;
+  justify-content: end;
+  align-content: center;
+  align-items: center;
+}
+
+.form button {
+  display: inherit;
+  align-content: center;
+  align-items: center;
+  font: inherit;
+  cursor: pointer;
+  background-color: #292828;
+  border: 1px solid #8a2b06;
+  color: white;
+  padding: 0.25rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.form button:hover,
+.form button:active {
+  background-color: #641e03;
+  border-color: #641e03;
+}
+
+
+.input {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
