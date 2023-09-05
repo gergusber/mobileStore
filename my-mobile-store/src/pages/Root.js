@@ -1,7 +1,6 @@
 import { Outlet, useNavigation } from 'react-router-dom'
 import Header from '../components/layout/header/header';
 import Cart from '../components/cart/cart';
-import SearchBar from '../components/layout/searchbar/searchbar';
 import { useState } from 'react';
 import CartProvider from '../store/CartProvider'
 

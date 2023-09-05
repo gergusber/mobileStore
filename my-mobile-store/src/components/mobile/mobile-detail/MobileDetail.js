@@ -1,5 +1,6 @@
 import classes from './MobileDetail.module.css'
-import Card from '@mui/material/Card'; import Box from '@mui/material/Box';
+import Card from '@mui/material/Card'; 
+import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
@@ -41,13 +42,15 @@ function MobileDetail({ mobile }) {
 
   return (
     <Card sx={{ display: 'flex' }}>
-      <Box sx={{ display: 'flex', flexDirection: 'row', alignContent: 'center' }}>
-        <CardMedia
+      <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent:'space-between', alignContent: 'center' }}>
+         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardMedia
           component="img"
-          sx={{ width: 400 }}
+          sx={{width: 200 }}
           image={mobile.imgUrl}
           alt={mobile.brand}
         />
+           </Box>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
           <CardContent sx={{ flex: '1 0 auto' }}>
             <Typography component="div" variant="h5">
@@ -60,41 +63,43 @@ function MobileDetail({ mobile }) {
           <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
             <div className={classes.mobileProperties}>
               <div className={classes.property}>
-                <strong>Marca:</strong> {mobile.brand}
+                <strong>Marca:</strong> {mobile.brand?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>Modelo:</strong> {mobile.model}
+                <strong>Modelo:</strong> {mobile.model?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>Precio:</strong> ${mobile.price}
+                <strong>Precio:</strong> ${mobile.price?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>CPU:</strong> {mobile.cpu}
+                <strong>CPU:</strong> {mobile.cpu?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>RAM:</strong> {mobile.ram}
+                <strong>RAM:</strong> {mobile.ram?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>Sistema Operativo:</strong> {mobile.os}
+                <strong>Sistema Operativo:</strong> {mobile.os?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>Resolución de pantalla:</strong> {mobile.displayResolution}
+                <strong>Resolución de pantalla:</strong> {mobile.displayResolution?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>Batería:</strong> {mobile.battery}
+                <strong>Batería:</strong> {mobile.battery?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>Cámaras:</strong> {mobile.primaryCamera}
+                <strong>Cámaras:</strong> {mobile.primaryCamera?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>Dimensiones:</strong> {mobile.dimentions}
+                <strong>Dimensiones:</strong> {mobile.dimentions?? "-"}
               </div>
               <div className={classes.property}>
-                <strong>Peso:</strong> {mobile.weight} g
+                <strong>Peso:</strong> {mobile.weight ?? "-"} g
               </div>
             </div>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+          <Box sx={{ display: 'flex',
+                     justifyContent: 'flex-start', 
+                     justifyItems: 'center', pl: 1, pb: 1 }}>
             <div className={classes.property}>
               <strong>Almacenamiento:</strong>
               <RadioGroup value={valueMemory} onChange={handleChangeMemory}>

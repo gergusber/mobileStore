@@ -1,8 +1,11 @@
 .flexContainer {
   display: flex;
+  flex: 1;
+  width: fit-content;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: end;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 5px; 
 }
  

@@ -1,13 +1,18 @@
 import MobileItem from './mobile-item/mobile-item';
 import classes from './Mobiles.module.css'
+import Grid from '@mui/material/Grid';
 
+const Mobiles = ({ mobiles }) => {
 
-const Mobiles = ({mobiles}) => {
   return (
     <>
-      <div className={classes.flexContainer}>
-        {mobiles.map(item => <MobileItem {...item} key={item.id} />)}
-      </div>
+      <Grid container item spacing={4}>
+        {mobiles.map(item => <>
+          <Grid item xs={6} md={3} key={item.id}>
+            <MobileItem {...item} key={item.id} />
+          </Grid>
+        </>)}
+      </Grid>
     </>
   );
 };

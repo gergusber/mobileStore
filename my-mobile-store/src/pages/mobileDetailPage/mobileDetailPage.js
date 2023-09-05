@@ -2,13 +2,25 @@ import { json, useRouteLoaderData, defer, Await } from 'react-router-dom'
 import { Suspense } from 'react';
 import MobileDetail from '../../components/mobile/mobile-detail/MobileDetail'
 
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+
 const MobileDetailPage = () => {
   const { mobile } = useRouteLoaderData('mobile-detail')
 
   return <>
+    <CssBaseline />
+
     <Suspense fallback={<p style={{ textAlign: 'center' }} >Loading...</p>}>
       <Await resolve={mobile}>
-        {(loadedMobileData) => <MobileDetail mobile={loadedMobileData} />}
+        {(loadedMobileData) => <>
+          <Container>
+            <Box sx={{ m: 2 }}>
+              <MobileDetail mobile={loadedMobileData} />
+            </Box>
+          </Container>
+        </>}
       </Await>
     </Suspense>
   </>

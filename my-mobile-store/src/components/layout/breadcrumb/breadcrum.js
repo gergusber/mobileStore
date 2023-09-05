@@ -3,7 +3,7 @@ const BreadCrumb = (props) => {
 
   return (
     <>
-      <div className={classes.breadcrum}>
+      <div className={classes.breadCrum}>
         {`bread > crumb`}
       </div>
     </>

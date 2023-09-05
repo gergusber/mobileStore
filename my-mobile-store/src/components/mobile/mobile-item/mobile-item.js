@@ -1,13 +1,12 @@
 import classes from './mobile-item.module.css';
 // import Card from '../../ui/card/Card'
-import Card from '@mui/material/Card'; import Box from '@mui/material/Box';
-import CardActions from '@mui/material/CardActions';
+import Card from '@mui/material/Card'; 
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
-
-
 import { Link } from 'react-router-dom';
+
+
 const MobileItem = (props) => {
 
   const price = `$${props.price ?? 0}`;
