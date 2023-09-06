@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField'
 import Box from '@mui/material/Box';
 
 // Define a regular expression pattern for text and numbers
-const pattern = /^[a-zA-Z0-9]*$/;
+const pattern = /^[a-zA-Z0-9\s]*$/;
 
 const SearchBar = (props) => {
   const searchInputRef = useRef();
@@ -23,44 +23,28 @@ const SearchBar = (props) => {
     else {
       setSearchValue(value);
       setSearchIsValid(true)
+      props.searchMobiles(value)
     }
   };
 
-  const submitHandler = event => {
-    event.preventDefault();
-
-    if (searchValue.trim().length === 0) {
-      setSearchIsValid(true)
-      return;
-    }
-    //call to the search event
-
-
-  }
   return (
     <>
       <div className={classes.searchBar}>
-        <BreadCrumb />
-        <form className={classes.form}  onSubmit={submitHandler}>
-          <Box sx={{ display: 'flex', flexDirection: 'row', alignContent: 'center', justifyContent:'space-between' }}>
-            <TextField
-              inputProps={{
-                style: {
-                  height: "10px",
-                },
-              }}
-              type='text'
-              defaultValue={''}
-              error={searchIsValid}
-              id={'search_' + props.id}
-              value={searchValue}
-              ref={searchInputRef}
-              onChange={handleInputChange} />
-
-            <Button type='submit' disabled={searchIsValid}>Search</Button>
-          </Box>
-
-        </form>
+       <span></span>
+        <Box sx={{ display: 'flex', flexDirection: 'row', alignContent: 'center', justifyContent: 'space-between' }}>
+          <TextField
+            inputProps={{
+              style: {
+                height: "10px",
+              },
+            }}
+            type='text'
+            error={searchIsValid}
+            id={'search_' + props.id}
+            value={searchValue}
+            ref={searchInputRef}
+            onChange={handleInputChange} />
+        </Box>
       </div>
     </>
   );

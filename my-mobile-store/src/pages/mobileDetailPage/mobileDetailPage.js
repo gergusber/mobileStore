@@ -1,49 +1,27 @@
-import { json, useRouteLoaderData, defer, Await } from 'react-router-dom'
-import { Suspense } from 'react';
 import MobileDetail from '../../components/mobile/mobile-detail/MobileDetail'
-
+import { LoadingPage } from '../../components/layout/loading'
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import { useGetMobileDetail } from "../../hooks/mobilesHook";
+import { useParams } from 'react-router-dom';
 
 const MobileDetailPage = () => {
-  const { mobile } = useRouteLoaderData('mobile-detail')
-
+  const { mobileId } = useParams();
+  const { data: mobile, isLoading } = useGetMobileDetail(mobileId);
   return <>
     <CssBaseline />
-
-    <Suspense fallback={<p style={{ textAlign: 'center' }} >Loading...</p>}>
-      <Await resolve={mobile}>
-        {(loadedMobileData) => <>
-          <Container>
-            <Box sx={{ m: 2 }}>
-              <MobileDetail mobile={loadedMobileData} />
-            </Box>
-          </Container>
-        </>}
-      </Await>
-    </Suspense>
+    {isLoading && <LoadingPage />}
+    {!isLoading && <>
+      <Container>
+        <Box sx={{ m: 2 }}>
+          <MobileDetail mobile={mobile} />
+        </Box>
+      </Container>
+    </>
+    }
   </>
 };
 
-const loadEvent = async (id) => {
-  const response = await fetch(`https://itx-frontend-test.onrender.com/api/product/${id}`);
-  if (!response.ok) {
-    return json(
-      { message: 'Could not fetch events' },
-      { status: 500 }
-    )
-  }
-
-  return await response.json();
-}
-
-export async function loader({ request, params }) {
-  const { mobileId } = params
-
-  return defer({
-    mobile: await loadEvent(mobileId) // wait for the event and load the page without loading the events, .
-  });
-}
 
 export default MobileDetailPage

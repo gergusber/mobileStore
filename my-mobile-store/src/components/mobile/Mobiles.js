@@ -1,6 +1,5 @@
 import MobileItem from './mobile-item/mobile-item';
-import classes from './Mobiles.module.css'
-import Grid from '@mui/material/Grid';
+ import Grid from '@mui/material/Grid';
 
 const Mobiles = ({ mobiles }) => {
 
