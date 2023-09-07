@@ -1,11 +1,10 @@
-# mobileStore
-
- 
+# mobileStore:
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+its published in vercell on https://mobile-store-five.vercel.app/
 ## Available Scripts
 
-In the project directory(), you can run:
+In the project directory(/my-mobile-store), you can run:
 
 ### `npm install`
 Installs all dependencies required for this app to work properly and start up in development mode.
