@@ -1,7 +1,7 @@
 import MobileItem from './mobile-item/mobile-item';
  import Grid from '@mui/material/Grid';
 
-const Mobiles = ({ mobiles }) => {
+const Mobiles = ({ mobiles = [] }) => {
 
   return (
     <>

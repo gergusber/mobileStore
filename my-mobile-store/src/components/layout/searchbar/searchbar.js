@@ -2,48 +2,50 @@
 import BreadCrumb from '../breadcrumb/breadcrum';
 import classes from './searchbar.module.css';
 import React, { useRef, useState } from 'react';
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
+import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 
 // Define a regular expression pattern for text and numbers
 const pattern = /^[a-zA-Z0-9\s]*$/;
 
 const SearchBar = (props) => {
+  const { searchMobiles } = props;
+
   const searchInputRef = useRef();
-  const [searchIsValid, setSearchIsValid] = useState(false)
-  const [searchValue, setSearchValue] = useState('')
+  const [searchIsValid, setSearchIsValid] = useState(true);
+  const [searchValue, setSearchValue] = useState('');
 
   const handleInputChange = (event) => {
     const value = event.target.value;
-    if (pattern.test(value)) {
+    if (!pattern.test(value)) {
       setSearchValue(value);
-      setSearchIsValid(false)
+      setSearchIsValid(false);
+      return;
     }
-    else {
-      setSearchValue(value);
-      setSearchIsValid(true)
-      props.searchMobiles(value)
-    }
+
+    setSearchValue(value);
+    setSearchIsValid(true);
+    searchMobiles(value);
   };
 
   return (
     <>
       <div className={classes.searchBar}>
-       <span></span>
+        <span></span>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignContent: 'center', justifyContent: 'space-between' }}>
           <TextField
             inputProps={{
               style: {
-                height: "10px",
+                height: '10px',
               },
             }}
             type='text'
-            error={searchIsValid}
+            error={!searchIsValid}
             id={'search_' + props.id}
             value={searchValue}
             ref={searchInputRef}
-            onChange={handleInputChange} />
+            onChange={handleInputChange}
+          />
         </Box>
       </div>
     </>

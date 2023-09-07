@@ -5,6 +5,7 @@ import Button from '@mui/material/Button'
 import Modal from '../ui/modal/modal';
 import CartContext from "../../store/CartContext";
 import CartItem from './cartContext/CartItem'
+import { Container, Box } from '@mui/material';
 
 
 const Cart = (props) => {
@@ -13,7 +14,6 @@ const Cart = (props) => {
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`
 
   const cartItemRemoveHandler = item => {
-    console.log('Filter:',item);
     cartCtx.removeItem(item.filter)
   }
   const cartItemAddHandler = item => {
@@ -36,19 +36,21 @@ const Cart = (props) => {
 
   return (
     <Modal onClose={props.onHideCart}>
-      <div className={''}>
-        <ul>
-          {cartItems}
-        </ul>
-        <div className={classes.total}>
-          <span>total amount</span>
-          <span>{totalAmount}</span>
-        </div>
-        <div className={classes.actions} >
-          <Button onClick={props.onHideCart}>close</Button>
-          {hasItems && <Button className={classes.button}>order</Button>}
-        </div>
-      </div>
+      <Container>
+        <Box>
+          <ul className={classes.ulItem}>
+            {cartItems}
+          </ul>
+          <div className={classes.total}>
+            <span>total amount</span>
+            <span>{totalAmount}</span>
+          </div>
+          <Box className={classes.actions} >
+            <Button onClick={props.onHideCart}>close</Button>
+            {hasItems && <Button className={classes.button}>order</Button>}
+          </Box>
+        </Box>
+      </Container>
     </Modal>
   );
 };

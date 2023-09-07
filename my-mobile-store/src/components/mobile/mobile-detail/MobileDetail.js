@@ -49,7 +49,7 @@ function MobileDetail({ mobile }) {
 
 
   const submitHandler = event => {
-    
+
     event.preventDefault();
 
     if (!valueMemory) {
@@ -69,8 +69,8 @@ function MobileDetail({ mobile }) {
   }
 
   return (
-    <Card sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
-      <CardContent>
+    <Card sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row' }}>
+      <CardContent sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignContent: 'center' }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <CardMedia
@@ -81,7 +81,7 @@ function MobileDetail({ mobile }) {
             />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <CardContent sx={{ flex: '1 0 auto' }}>
+            <CardContent sx={{ flex: '1 0 auto' }} >
               <Typography component="div" variant="h5">
                 <h2>{`${mobile.brand} ${mobile.model}`}</h2>
               </Typography>
@@ -143,15 +143,24 @@ function MobileDetail({ mobile }) {
                   {availableColors}
                 </RadioGroup>
               </div>
+              <Box sx={{
+                display: 'flex',
+                justifyContent: 'flex-start',
+                justifyItems: 'center', pl: 1, pb: 1
+              }}>
+                <IconButton aria-label="add to favorites">
+                  <Button type='button' color='success' onClick={submitHandler}><AddIcon /> Add to Cart</Button>
+                </IconButton>
+              </Box>
             </Box>
           </Box>
         </Box>
       </CardContent>
-      <CardActions >
+      {/* <CardActions >
         <IconButton aria-label="add to favorites">
           <Button type='button' onClick={submitHandler}><AddIcon /></Button>
         </IconButton>
-      </CardActions>
+      </CardActions> */}
     </Card >
   );
 };

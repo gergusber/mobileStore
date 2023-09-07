@@ -17,8 +17,8 @@ const ErrorPage = () => {
 
 
   return <>
-    <main >
-        <p> {message} </p>
+    <main>
+      <p> {message} </p>
     </main>
   </>
 };

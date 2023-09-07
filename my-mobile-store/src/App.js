@@ -4,14 +4,14 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './App.css';
-import HomePage from './pages/homePage/HomePage' //{ loader as productsDetailLoader } 
+import HomePage from './pages/homePage/index'  
 import RootLayout from './pages/Root';
 import ErrorPage from './pages/error/Error'
 import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom'
-import MobileDetailPage from './pages/mobileDetailPage/mobileDetailPage';
+import MobileDetailPage from './pages/mobileDetailPage/index';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import {
   QueryClient,

@@ -26,6 +26,9 @@
 .actions {
     text-align: right;
 }
+.ulItem {
+  margin-right: 0rem;
+}
 .total {
     display: flex;
     justify-content: space-between;
