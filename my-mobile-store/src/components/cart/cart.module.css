@@ -28,6 +28,8 @@
 }
 .ulItem {
   margin-right: 0rem;
+  overflow: auto;
+  max-height: 300;
 }
 .total {
     display: flex;

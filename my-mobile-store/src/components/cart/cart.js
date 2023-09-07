@@ -36,8 +36,8 @@ const Cart = (props) => {
 
   return (
     <Modal onClose={props.onHideCart}>
-      <Container>
-        <Box>
+      <Container >
+        <Box >
           <ul className={classes.ulItem}>
             {cartItems}
           </ul>
